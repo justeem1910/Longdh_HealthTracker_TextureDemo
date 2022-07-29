@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "3914991D-4C39-4223-A1F2-00AA5030F535"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8180A29E-AAA6-4AAE-B31B-D096354FC6C2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Longdh_HealthTracker_TextureDemo/Cell/NewsTableCellNode.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "collectionNode(_:nodeBlockForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82863AC6-8D04-47EE-A050-3C9B474C44E0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Longdh_HealthTracker_TextureDemo/Cell/NewsTableCellNode.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "collectionNode(_:nodeBlockForItemAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "82863AC6-8D04-47EE-A050-3C9B474C44E0 - 1804e739acbf3885"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; __C.ASCellNode in Longdh_HealthTracker_TextureDemo.NewsTableCellNode.collectionNode(_: __C.ASCollectionNode, nodeBlockForItemAt: Foundation.IndexPath) -&gt; () -&gt; __C.ASCellNode"
+                  moduleName = "Longdh_HealthTracker_TextureDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hoanglong/Documents/Ios/Longdh_HealthTracker_TextureDemo/Longdh_HealthTracker_TextureDemo/Cell/NewsTableCellNode.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "82863AC6-8D04-47EE-A050-3C9B474C44E0 - 1804e739acbf3885"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; __C.ASCellNode in Longdh_HealthTracker_TextureDemo.NewsTableCellNode.collectionNode(_: __C.ASCollectionNode, nodeBlockForItemAt: Foundation.IndexPath) -&gt; () -&gt; __C.ASCellNode"
+                  moduleName = "Longdh_HealthTracker_TextureDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hoanglong/Documents/Ios/Longdh_HealthTracker_TextureDemo/Longdh_HealthTracker_TextureDemo/Cell/NewsTableCellNode.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "288">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C47D4AAC-5D8F-427D-ADB0-8F318A7970C3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Longdh_HealthTracker_TextureDemo/Model/HomeModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "init(json:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5275A6CE-FCBA-403D-8812-FDBF01D54EAA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Longdh_HealthTracker_TextureDemo/Model/HomeModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "init(articleList:doctorList:promotionList:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F937AAD5-70A5-4EAE-957E-5BE2B82C3D1D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Longdh_HealthTracker_TextureDemo/Model/HomeModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "9"
+            endingLineNumber = "9"
+            landmarkName = "HomeModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "F937AAD5-70A5-4EAE-957E-5BE2B82C3D1D - 487e57eebbdf22b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Longdh_HealthTracker_TextureDemo.HomeModel.__allocating_init() -&gt; Longdh_HealthTracker_TextureDemo.HomeModel"
+                  moduleName = "Longdh_HealthTracker_TextureDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hoanglong/Documents/Ios/Longdh_HealthTracker_TextureDemo/Longdh_HealthTracker_TextureDemo/Model/HomeModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "F937AAD5-70A5-4EAE-957E-5BE2B82C3D1D - f33d99e8f80bc70f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Longdh_HealthTracker_TextureDemo.HomeModel.init() -&gt; Longdh_HealthTracker_TextureDemo.HomeModel"
+                  moduleName = "Longdh_HealthTracker_TextureDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hoanglong/Documents/Ios/Longdh_HealthTracker_TextureDemo/Longdh_HealthTracker_TextureDemo/Model/HomeModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "F937AAD5-70A5-4EAE-957E-5BE2B82C3D1D - a0f7b1b4b08b05d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Longdh_HealthTracker_TextureDemo.HomeModel.__deallocating_deinit"
+                  moduleName = "Longdh_HealthTracker_TextureDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hoanglong/Documents/Ios/Longdh_HealthTracker_TextureDemo/Longdh_HealthTracker_TextureDemo/Model/HomeModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06316E0A-14F5-4B27-94C9-77F5C5EC5083"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Longdh_HealthTracker_TextureDemo/Ultilities/ApiUltilities.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "jsonResponseObject(tailStrURL:method:headers:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8D811BD2-6AC4-4974-BBF0-3D8D2346CF3B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Longdh_HealthTracker_TextureDemo/Ultilities/ApiUltilities.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "jsonResponseObject(tailStrURL:method:headers:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F5C6D8E3-CD53-4E79-908B-642DE801C7BB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Longdh_HealthTracker_TextureDemo/Ultilities/ApiUltilities.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "jsonResponseObject(tailStrURL:method:headers:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D0BF182-0386-46D5-A73D-FC3E63C3C181"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Longdh_HealthTracker_TextureDemo/Ultilities/ApiUltilities.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "jsonResponseObject(tailStrURL:method:headers:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF2AD496-666F-4AE7-8A4A-02355BFB3774"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Longdh_HealthTracker_TextureDemo/Ultilities/ApiUltilities.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "jsonResponse(tailStrURL:isPublicAPI:method:parameters:encoding:headers:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9AEF310-4608-4792-807C-643BB5A81571"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Longdh_HealthTracker_TextureDemo/Ultilities/ApiUltilities.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "jsonResponse(tailStrURL:isPublicAPI:method:parameters:encoding:headers:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0070ABE1-0C6F-4A4E-8AA5-1A4B5DBB7E53"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Longdh_HealthTracker_TextureDemo/Ultilities/ApiUltilities.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "jsonResponse(tailStrURL:isPublicAPI:method:parameters:encoding:headers:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D83AB984-F040-4782-8FE1-B04A4CB76BA1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Longdh_HealthTracker_TextureDemo/Ultilities/ApiUltilities.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "jsonResponse(tailStrURL:isPublicAPI:method:parameters:encoding:headers:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
