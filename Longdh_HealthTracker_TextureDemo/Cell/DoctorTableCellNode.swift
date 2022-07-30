@@ -39,7 +39,7 @@ class DoctorTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSou
     func setView(){
         collectionNode.delegate = self
         collectionNode.dataSource = self
-        collectionNode.style.preferredSize = CGSize(width: UIScreen.main.bounds.width, height: 220)
+        collectionNode.style.preferredSize = CGSize(width: UIScreen.main.bounds.width, height: 185)
         collectionNode.contentInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 12)
         textTitle.attributedText = NSAttributedString(string: "Giới thiệu bác sĩ",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17), .foregroundColor: Constant.Color.purple1])
         textTitle.style.preferredSize = CGSize(width: 200, height: 22)
@@ -59,7 +59,7 @@ class DoctorTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSou
         let absoluteTitle = ASAbsoluteLayoutSpec(children: [textTitle, stackSeeAll])
         textTitle.style.layoutPosition =  CGPoint(x: 16, y: 0)
         stackSeeAll.style.layoutPosition = CGPoint(x: constrainedSize.max.width - 96, y: 0)
-    
+        absoluteTitle.style.height = ASDimensionMake(22)
         let stackCell = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .start, alignItems: .start, children: [absoluteTitle, collectionNode])
         stackCell.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 286)
         return ASInsetLayoutSpec(insets: .zero, child: stackCell)
@@ -68,7 +68,7 @@ class DoctorTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSou
     
     //MARK: DELEGATE
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        return ASSizeRange(min: CGSize(width: 121, height: 185), max: CGSize(width: 121, height: 185))
+        return ASSizeRange(min: CGSize(width: 0, height: 185), max: CGSize(width: 121, height: 185))
     }
     
     //MARK: DATASOURCE

@@ -12,7 +12,6 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
     var viewBackground = ASDisplayNode()
     var tableNode:ASTableNode = ASTableNode()
     var newsModel: HomeModel?
-
     override init() {
         super.init()
         automaticallyManagesSubnodes = true
@@ -67,10 +66,11 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
 
     }
     
-//    func tableNode(_ tableNode: ASTableNode, constrainedSizeForRowAt indexPath: IndexPath) -> ASSizeRange {
-//        let width = UIScreen.main.bounds.width
-//        return ASSizeRangeMake(CGSize(width: width, height: 0), CGSize(width: width, height: 296))
-//    }
+    func tableNode(_ tableNode: ASTableNode, constrainedSizeForRowAt indexPath: IndexPath) -> ASSizeRange {
+          let width = UIScreen.main.bounds.width
+          return ASSizeRangeMake(CGSize(width: width, height: 0), CGSize(width: width, height: 296))
+        
+    }
     
     func numberOfSections(in tableNode: ASTableNode) -> Int {
         return 1
