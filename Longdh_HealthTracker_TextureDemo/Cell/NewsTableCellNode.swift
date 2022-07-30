@@ -13,7 +13,6 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
     var textTitle = ASTextNode()
     var textSeeAll = ASTextNode()
     var imgSeeAll = ASImageNode()
-    var pushNodeHandler: ((ASDisplayNode) -> ())? = nil
     var articleList     : [ArticleHomeModel]?
     var promotionList     : [PromotionHomeModel]?
     
@@ -35,13 +34,19 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
         backgroundColor = .clear
         clipsToBounds = false
         setView()
+        
     }
     
+    override func didLoad() {
+        super.didLoad()
+        
+    }
     func setView(){
         collectionNode.delegate = self
         collectionNode.dataSource = self
         collectionNode.style.preferredSize = CGSize(width: UIScreen.main.bounds.width, height: 220)
         collectionNode.contentInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 12)
+      
         textTitle.attributedText = NSAttributedString(string: "Tin tức",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17), .foregroundColor: Constant.Color.purple1])
         textTitle.style.preferredSize = CGSize(width: 120, height: 22)
         textTitle.style.alignSelf = .start
@@ -54,20 +59,16 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
         
         
     }
-    func configViewsArticle(articleList: [ArticleHomeModel]? ,pushNodeHandler: ((ASDisplayNode) -> ())?) {
-        self.pushNodeHandler = pushNodeHandler
+    func configViewsArticle(articleList: [ArticleHomeModel]? ) {
         self.articleList = articleList
         textTitle.attributedText = NSAttributedString(string: "Tin tức",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17), .foregroundColor: Constant.Color.purple1])
         self.promotionList = nil
-        collectionNode.reloadData()
     }
     
-    func configViewsPromotion(promotionList: [PromotionHomeModel]?,pushNodeHandler: ((ASDisplayNode) -> ())?) {
-        self.pushNodeHandler = pushNodeHandler
+    func configViewsPromotion(promotionList: [PromotionHomeModel]?) {
         textTitle.attributedText = NSAttributedString(string: "Khuyến mại",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17), .foregroundColor: Constant.Color.purple1])
         self.articleList = nil
         self.promotionList = promotionList
-        collectionNode.reloadData()
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -84,7 +85,7 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
     
     //MARK: DELEGATE
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        return ASSizeRange(min: CGSize(width: 0, height: 220), max: CGSize(width: 300, height: 220))
+        return ASSizeRange(min: CGSize(width: 0, height: 220), max: CGSize(width: 258, height: 220))
     }
     
     //MARK: DATASOURCE
@@ -93,7 +94,10 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        if let articleList = articleList {
+            return articleList.count
+        }
+        return promotionList?.count ?? 0
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
@@ -108,6 +112,7 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
                 }
                 let promotion = self.promotionList?[indexPath.item]
                 cell.nodeNewsFeed.configViews(promotion: promotion)
+                return cell
             }
             return ASCellNode()
         }

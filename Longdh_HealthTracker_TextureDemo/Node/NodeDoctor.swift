@@ -22,15 +22,16 @@ class NodeDoctor: ASDisplayNode {
         setView()
     }
     func setView(){
-        imgDoctor.image = UIImage(named: Constant.Image.doctor)
         imgDoctor.style.preferredSize = CGSize(width: 97, height: 97)
+        imgDoctor.contentMode = .scaleAspectFill
         imgStar.image = UIImage(named: Constant.Image.star)
         imgStar.style.preferredSize = CGSize(width: 12, height: 12)
         imgDoctor.cornerRadius = 6
-        
+        textName.style.width = ASDimensionMake(97)
         textName.attributedText = NSAttributedString(string: "Long", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 13), .foregroundColor: Constant.Color.gray1])
+        textName.maximumNumberOfLines = 1
         textSpecial.attributedText = NSAttributedString(string: "sfasdfafasf", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 12), .foregroundColor: Constant.Color.gray3])
-        
+        textName.maximumNumberOfLines = 1
         let font = UIFont(name: Constant.Font.nunitoRegular, size: 11)
         let headColor = Constant.Color.gray1
         let tailColor = Constant.Color.gray3
@@ -54,7 +55,13 @@ class NodeDoctor: ASDisplayNode {
     }
     
     private func configViews(imageURLStr: String?, name: String?, major: String?, star: Double?, numberOfReviews: Int?) {
-        imgDoctor.url = URL(string: imageURLStr ?? "")
+
+        if (imageURLStr ?? "") == "" {
+            imgDoctor.image = UIImage(named: Constant.Image.doctor)
+        } else {
+            imgDoctor.url = URL(string: imageURLStr ?? " ")
+        }
+        
         textName.attributedText = NSAttributedString(string: name ?? " ", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 13), .foregroundColor: Constant.Color.gray1])
         textSpecial.attributedText = NSAttributedString(string: major ?? " ", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 12), .foregroundColor: Constant.Color.gray3])
         
@@ -66,11 +73,12 @@ class NodeDoctor: ASDisplayNode {
         //??0
         textVote.attributedText = NSMutableAttributedString()
             .attrStr(text: String(format: "%.1f", star ?? 0), font: font, textColor: headColor)
-            .attrStr(text: "\(numberOfReviews ?? 0)", font: font, textColor: tailColor)
+            .attrStr(text: " (\(numberOfReviews ?? 0))", font: font, textColor: tailColor)
         
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        
         let stackVote = ASStackLayoutSpec(direction: .horizontal, spacing: 6, justifyContent: .start, alignItems: .start, children: [imgStar, textVote])
         let stackNameAndSpecial = ASStackLayoutSpec(direction: .vertical, spacing: 4, justifyContent: .start, alignItems: .start, children: [textName, textSpecial])
         
@@ -79,7 +87,8 @@ class NodeDoctor: ASDisplayNode {
         let stackCell = ASStackLayoutSpec(direction: .vertical, spacing: 12, justifyContent: .start, alignItems: .start, children: [imgDoctor, stackNameAndVote])
         
         let insetCell = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12), child: stackCell)
-        insetCell.style.preferredSize = CGSize(width: 121, height: 185)
+        
+
         return insetCell
     }
 }

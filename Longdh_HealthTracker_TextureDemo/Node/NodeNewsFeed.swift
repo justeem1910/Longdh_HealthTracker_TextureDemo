@@ -27,10 +27,11 @@ class NodeNewsFeed : ASDisplayNode {
         imgNewsNode.borderWidth = 1
         imgNewsNode.borderColor = Constant.Color.gray5.cgColor
         imgNewsNode.style.preferredSize = CGSize(width: 258, height: 134)
+        imgNewsNode.contentMode = .scaleAspectFill
         imgTextNode.image = UIImage(named: Constant.Image.eclipse)
         
-        textTitle.attributedText = NSAttributedString(string: "Jio Health khởi động chương trình Doctor Tour 2021", attributes: [NSAttributedString.Key.font : UIFont.init(name: Constant.Font.nunitoBold, size: 15), .foregroundColor : Constant.Color.gray1])
-        textTitle.maximumNumberOfLines = 5
+        textTitle.attributedText = NSAttributedString(string: "Jio Health khởi động chương trình Doctor Tour 2021", attributes: [NSAttributedString.Key.font : UIFont.init(name: Constant.Font.nunitoBold, size: 15), .foregroundColor : Constant.Color.gray1 ])
+        textTitle.maximumNumberOfLines = 2
         textSpecial.attributedText = NSAttributedString(string: "Ưu đãi hot", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13), .foregroundColor: Constant.Color.green])
         textDate.attributedText = NSAttributedString(string: "28/6/2021", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 13), .foregroundColor: Constant.Color.gray3 ])
     }
@@ -55,7 +56,6 @@ class NodeNewsFeed : ASDisplayNode {
     private func configViews(imageURLStr: String?, title: String?, special: String?, date: String?) {
         imgNewsNode.url = URL(string: imageURLStr ?? " ")
         textTitle.attributedText = NSAttributedString(string: title ?? " ", attributes: [NSAttributedString.Key.font : UIFont.init(name: Constant.Font.nunitoBold, size: 15), .foregroundColor : Constant.Color.gray1])
-        textTitle.maximumNumberOfLines = 5
         textSpecial.attributedText = NSAttributedString(string: special ?? " ", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13), .foregroundColor: Constant.Color.green])
         textDate.attributedText = NSAttributedString(string: date ?? " ", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 13), .foregroundColor: Constant.Color.gray3 ])
     }

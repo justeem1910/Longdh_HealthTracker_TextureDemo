@@ -23,12 +23,18 @@ class DoctorTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSou
         return node
     }()
     
+    var doctorList:[DoctorHomeModel]?
+    
     override init() {
         super.init()
         automaticallyManagesSubnodes = true
         backgroundColor = .clear
         clipsToBounds = false
         setView()
+    }
+    override func didLoad() {
+        super.didLoad()
+        
     }
     func setView(){
         collectionNode.delegate = self
@@ -62,7 +68,7 @@ class DoctorTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSou
     
     //MARK: DELEGATE
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        return ASSizeRange(min: CGSize(width: 0, height: 220), max: CGSize(width: 274, height: 220))
+        return ASSizeRange(min: CGSize(width: 121, height: 185), max: CGSize(width: 121, height: 185))
     }
     
     //MARK: DATASOURCE
@@ -71,14 +77,21 @@ class DoctorTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSou
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return doctorList?.count ?? 0
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
         return { [weak self] in
             let cell = DoctorCollectionCellNode()
             cell.clipsToBounds = false
-            return cell
+            if let self = self {
+                if let doctorList = self.doctorList {
+                    let doctor = doctorList[indexPath.item]
+                    cell.nodeDoctor.configViews(doctorInfo: doctor)
+                    return cell
+                }
+            }
+           return cell
         }
         
     }

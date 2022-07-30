@@ -16,30 +16,31 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
     override init() {
         super.init()
         automaticallyManagesSubnodes = true
-        backgroundColor = .white
-        cornerRadius = 16
-        clipsToBounds = false
-        setView()
+        self.backgroundColor = .white
+        self.cornerRadius = 16
+        self.clipsToBounds = false
+        self.setView()
+        fetchDataNewsFeed()
+
     }
     func setView (){
         viewBackground.backgroundColor = .clear
         tableNode.backgroundColor = .clear
         
+       
+       
+//        refreshControl.addTarget(self, action: #selector(loadNewFeed), for: .valueChanged)
+        
+        
+    }
+    override func didLoad() {
+        super.didLoad()
         tableNode.delegate = self
         tableNode.dataSource = self
         tableNode.view.showsVerticalScrollIndicator = false
         tableNode.view.showsHorizontalScrollIndicator = false
         tableNode.view.separatorStyle = .none
-//        refreshControl.addTarget(self, action: #selector(loadNewFeed), for: .valueChanged)
-        fetchDataNewsFeed()
-        
     }
-    
-    override func didLoad() {
-        super.didLoad()
-       
-    }
-    
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let layout = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), child: tableNode)
@@ -52,7 +53,7 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
     @objc func fetchDataNewsFeed() {
         APIUtilities.requestHomePatientNewsFeed{ [weak self] newFeedResult, error in
             guard let self = self else { return}
-            
+
             guard let newsFeedResult = newFeedResult, error == nil else {
                 return
             }
@@ -76,7 +77,7 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
     }
     
     func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
@@ -84,27 +85,25 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
             return { [weak self] in
                 let cell = NewsTableCellNode()
                 cell.selectionStyle = .none
-                if let self = self {
-                    cell.configViewsArticle(articleList: self.newsModel?.articleList) { [weak self] node in
-                    }
-                }
+                cell.configViewsArticle(articleList: self?.newsModel?.articleList)
+                return cell
+            }
+        
+        } else if indexPath.item == 1 {
+            return { [weak self] in
+                let cell = NewsTableCellNode()
+                cell.selectionStyle = .none
+                cell.configViewsPromotion(promotionList: self?.newsModel?.promotionList)
+                return cell
+            }
+        } else if indexPath.item == 2 {
+            return { [weak self] in
+                let cell = DoctorTableCellNode()
+                cell.selectionStyle = .none
+                cell.doctorList = self?.newsModel?.doctorList
                 return cell
             }
         }
-//        } else if indexPath.item == 1 {
-//            return { [weak self] in
-//                let cell = NewsTableCellNode()
-//                cell.selectionStyle = .none
-//
-//                return cell
-//            }
-//        } else if indexPath.item == 2 {
-//            return { [weak self] in
-//                let cell = DoctorTableCellNode()
-//                cell.selectionStyle = .none
-//                return cell
-//            }
-//        }
         return {[weak self] in
             return ASCellNode()
         }

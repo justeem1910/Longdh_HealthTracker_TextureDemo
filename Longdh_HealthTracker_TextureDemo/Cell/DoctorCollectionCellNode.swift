@@ -10,6 +10,7 @@ import AsyncDisplayKit
 class DoctorCollectionCellNode: ASCellNode {
     
     let nodeDoctor = NodeDoctor()
+ 
     override init() {
         super.init()
         automaticallyManagesSubnodes = true
