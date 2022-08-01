@@ -1,8 +1,8 @@
 //
-//  APIUltilities.swift
-//  HealthyTracker
+//  ApiUltilities.swift
+//  Longdh_HealthTracker_TextureDemo
 //
-//  Created by pc_1359 on 28/06/2022.
+//  Created by Hoang Long on 28/06/2022.
 //
 
 import Foundation
