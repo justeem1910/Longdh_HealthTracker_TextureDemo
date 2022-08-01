@@ -80,7 +80,7 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
     
     //MARK: DELEGATE
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        return ASSizeRange(min: CGSize(width: 0, height: 220), max: CGSize(width: 258, height: 220))
+        return ASSizeRange(min: CGSize(width: 0, height: 220), max: CGSize(width:270, height: 220))
     }
     
     //MARK: DATASOURCE

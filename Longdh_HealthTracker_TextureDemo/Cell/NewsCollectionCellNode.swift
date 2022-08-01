@@ -18,10 +18,9 @@ class NewsCollectionCellNode: ASCellNode {
     }
     
     func setView(){
-        nodeNewsFeed.cornerRadius = 8
-        
+        nodeNewsFeed.style.preferredSize = CGSize(width: 258, height: 220)
         nodeNewsFeed.clipsToBounds = true
-        
+        nodeNewsFeed.cornerRadius = 8
         
         imgShadow.style.preferredSize = CGSize(width: 258, height: 220)
         imgShadow.clipsToBounds = false
@@ -40,7 +39,7 @@ class NewsCollectionCellNode: ASCellNode {
         imgShadow.style.layoutPosition = CGPoint(x: 0, y: 0)
         nodeNewsFeed.style.layoutPosition = CGPoint(x: 0, y: 0)
         
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0), child: absoluteLayout)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 12,bottom: 0, right: 0), child: absoluteLayout)
     }
     
 }
