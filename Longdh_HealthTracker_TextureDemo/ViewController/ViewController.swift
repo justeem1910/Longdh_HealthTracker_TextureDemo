@@ -8,10 +8,9 @@
 import AsyncDisplayKit
 
 class ViewController: ASDKViewController<BaseNode> {
-
-    var headerNode = HeaderPresentation()
-    var bodyNode = BodyPresentation()
+    
     var homeNode = HomePresentation()
+
     override init() {
         super.init(node: BaseNode())
         setView()
@@ -34,7 +33,6 @@ class ViewController: ASDKViewController<BaseNode> {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

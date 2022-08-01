@@ -8,10 +8,10 @@
 import AsyncDisplayKit
 
 class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
-    
     var viewBackground = ASDisplayNode()
     var tableNode:ASTableNode = ASTableNode()
     var newsModel: HomeModel?
+    var progress:ProgressHUD?
     override init() {
         super.init()
         automaticallyManagesSubnodes = true
@@ -19,27 +19,22 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
         self.cornerRadius = 16
         self.clipsToBounds = false
         self.setView()
-        fetchDataNewsFeed()
+        
+       
 
     }
     func setView (){
         viewBackground.backgroundColor = .clear
         tableNode.backgroundColor = .clear
-        
-       
-       
-//        refreshControl.addTarget(self, action: #selector(loadNewFeed), for: .valueChanged)
-        
-        
-    }
-    override func didLoad() {
-        super.didLoad()
         tableNode.delegate = self
         tableNode.dataSource = self
         tableNode.view.showsVerticalScrollIndicator = false
         tableNode.view.showsHorizontalScrollIndicator = false
         tableNode.view.separatorStyle = .none
+        fetchDataNewsFeed()
+        
     }
+    
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let layout = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), child: tableNode)
@@ -47,9 +42,9 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
         return layout
         
     }
-    
-    
-    @objc func fetchDataNewsFeed() {
+
+    func fetchDataNewsFeed() {
+        self.showLoaderView()
         APIUtilities.requestHomePatientNewsFeed{ [weak self] newFeedResult, error in
             guard let self = self else { return}
 
@@ -61,6 +56,7 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
             DispatchQueue.main.async{ [weak self] in
                 guard let self = self else { return}
                 self.tableNode.reloadData()
+                self.dismissLoaderView()
             }
         }
 

@@ -36,11 +36,6 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
         setView()
         
     }
-    
-    override func didLoad() {
-        super.didLoad()
-        
-    }
     func setView(){
         collectionNode.delegate = self
         collectionNode.dataSource = self

@@ -32,10 +32,7 @@ class DoctorTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSou
         clipsToBounds = false
         setView()
     }
-    override func didLoad() {
-        super.didLoad()
-        
-    }
+    
     func setView(){
         collectionNode.delegate = self
         collectionNode.dataSource = self
