@@ -27,7 +27,7 @@ class NodeNewsFeed : ASDisplayNode {
         imgNewsNode.backgroundColor = .clear
 
         imgNewsNode.borderColor = Constant.Color.gray5.cgColor
-        imgNewsNode.style.preferredSize = CGSize(width: 258, height: 134)
+        
         imgNewsNode.contentMode = .scaleToFill
         imgTextNode.image = UIImage(named: Constant.Image.eclipse)
         

@@ -21,13 +21,13 @@ class NewsCollectionCellNode: ASCellNode {
         nodeNewsFeed.style.preferredSize = CGSize(width: 258, height: 220)
         nodeNewsFeed.clipsToBounds = true
         nodeNewsFeed.cornerRadius = 8
+        nodeNewsFeed.imgNewsNode.style.preferredSize = CGSize(width: 258, height: 134)
         
         imgShadow.style.preferredSize = CGSize(width: 258, height: 220)
         imgShadow.clipsToBounds = false
         imgShadow.backgroundColor = .white
         imgShadow.cornerRadius = 8
-        imgShadow.borderWidth = 1
-        imgShadow.borderColor = Constant.Color.gray5.cgColor
+
         imgShadow.shadowRadius = 20
         imgShadow.shadowOffset = CGSize(width: 0, height: 4)
         imgShadow.shadowOpacity = 1
