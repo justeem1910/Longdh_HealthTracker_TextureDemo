@@ -41,11 +41,11 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
         collectionNode.style.preferredSize = CGSize(width: UIScreen.main.bounds.width, height: 220)
         collectionNode.contentInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 12)
       
-        textTitle.attributedText = NSAttributedString(string: "Tin tức",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17), .foregroundColor: Constant.Color.purple1])
+        textTitle.attributedText = NSAttributedString(string: "Tin tức",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17) ?? UIFont.boldSystemFont(ofSize: 17), .foregroundColor: Constant.Color.purple1])
         textTitle.style.preferredSize = CGSize(width: 120, height: 22)
-        textTitle.style.alignSelf = .start
+
         
-        textSeeAll.attributedText = NSAttributedString(string: "Xem tất cả", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13), .foregroundColor: Constant.Color.green])
+        textSeeAll.attributedText = NSAttributedString(string: "Xem tất cả", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .semibold), .foregroundColor: Constant.Color.green])
         
         imgSeeAll.image = UIImage(named: Constant.Image.seeAll)
         imgSeeAll.contentMode = .scaleAspectFit
@@ -55,18 +55,19 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
     }
     func configViewsArticle(articleList: [ArticleHomeModel]? ) {
         self.articleList = articleList
-        textTitle.attributedText = NSAttributedString(string: "Tin tức",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17), NSAttributedString.Key.foregroundColor: Constant.Color.purple1])
+        textTitle.attributedText = NSAttributedString(string: "Tin tức",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17) ?? UIFont.boldSystemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: Constant.Color.purple1])
         self.promotionList = nil
     }
     
     func configViewsPromotion(promotionList: [PromotionHomeModel]?) {
-        textTitle.attributedText = NSAttributedString(string: "Khuyến mại",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17), .foregroundColor: Constant.Color.purple1])
+        textTitle.attributedText = NSAttributedString(string: "Khuyến mại",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17) ?? UIFont.systemFont(ofSize: 13, weight: .semibold), .foregroundColor: Constant.Color.purple1])
         self.articleList = nil
         self.promotionList = promotionList
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let stackSeeAll = ASStackLayoutSpec(direction: .horizontal, spacing: 2, justifyContent: .center, alignItems: .center, children: [textSeeAll, imgSeeAll])
+        
         let absoluteTitle = ASAbsoluteLayoutSpec(children: [textTitle, stackSeeAll])
         textTitle.style.layoutPosition =  CGPoint(x: 16, y: 0)
         stackSeeAll.style.layoutPosition = CGPoint(x: constrainedSize.max.width - 96, y: 0)

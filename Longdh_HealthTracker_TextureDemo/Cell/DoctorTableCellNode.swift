@@ -38,11 +38,11 @@ class DoctorTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSou
         collectionNode.dataSource = self
         collectionNode.style.preferredSize = CGSize(width: UIScreen.main.bounds.width, height: 185)
         collectionNode.contentInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 12)
-        textTitle.attributedText = NSAttributedString(string: "Giới thiệu bác sĩ",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17), .foregroundColor: Constant.Color.purple1])
+        textTitle.attributedText = NSAttributedString(string: "Giới thiệu bác sĩ",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17) ?? UIFont.boldSystemFont(ofSize: 17), .foregroundColor: Constant.Color.purple1])
         textTitle.style.preferredSize = CGSize(width: 200, height: 22)
         textTitle.style.alignSelf = .start
         
-        textSeeAll.attributedText = NSAttributedString(string: "Xem tất cả", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13), .foregroundColor: Constant.Color.green])
+        textSeeAll.attributedText = NSAttributedString(string: "Xem tất cả", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .semibold), .foregroundColor: Constant.Color.green])
         
         imgSeeAll.image = UIImage(named: Constant.Image.seeAll)
         imgSeeAll.contentMode = .scaleAspectFit

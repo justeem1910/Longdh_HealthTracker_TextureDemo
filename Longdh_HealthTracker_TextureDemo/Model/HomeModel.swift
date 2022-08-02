@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class HomeModel: NSObject, JsonInitObject {
+class HomeModel: NSObject,JsonInitObject {
     
     var articleList     : [ArticleHomeModel]?
     var doctorList     : [DoctorHomeModel]?

@@ -41,7 +41,7 @@ class HeaderPresentation: ASDisplayNode{
     }
     func setView(){
         textName.attributedText = NSAttributedString(string: "Quỳnh ken" , attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 15) ?? UIFont.systemFont(ofSize: 15, weight: .bold), NSAttributedString.Key.foregroundColor: UIColor.white])
-        textStatus.attributedText = NSAttributedString(string: "Đang trực tuyến", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 12), .foregroundColor: UIColor.white ])
+        textStatus.attributedText = NSAttributedString(string: "Đang trực tuyến", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 12) ?? UIFont.systemFont(ofSize: 12, weight: .regular), .foregroundColor: UIColor.white ])
         
         imgBgUser.image = UIImage(named: Constant.Image.backgroundHeader)
         imgUser.image = UIImage(named: Constant.Image.user)
@@ -60,7 +60,6 @@ class HeaderPresentation: ASDisplayNode{
         
         let stackUser = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [textName, stackStatus])
         stackUser.style.height = ASDimensionMake(50)
-
         stackUser.style.width = ASDimensionMake(constrainedSize.max.width)
         
         

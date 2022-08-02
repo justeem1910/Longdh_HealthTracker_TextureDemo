@@ -32,10 +32,10 @@ class NodeNewsFeed : ASDisplayNode {
         imgTextNode.image = UIImage(named: Constant.Image.eclipse)
         
         
-        textTitle.attributedText = NSAttributedString(string: "Jio Health khởi động chương trình Doctor Tour 2021", attributes: [NSAttributedString.Key.font : UIFont.init(name: Constant.Font.nunitoBold, size: 15), .foregroundColor : Constant.Color.gray1 ])
+        textTitle.attributedText = NSAttributedString(string: "Jio Health khởi động chương trình Doctor Tour 2021", attributes: [NSAttributedString.Key.font : UIFont.init(name: Constant.Font.nunitoBold, size: 15) ?? UIFont.systemFont(ofSize: 15, weight: .bold), .foregroundColor : Constant.Color.gray1 ])
         textTitle.maximumNumberOfLines = 2
-        textSpecial.attributedText = NSAttributedString(string: "Ưu đãi hot", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13), .foregroundColor: Constant.Color.green])
-        textDate.attributedText = NSAttributedString(string: "28/6/2021", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 13), .foregroundColor: Constant.Color.gray3 ])
+        textSpecial.attributedText = NSAttributedString(string: "Ưu đãi hot", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .semibold), .foregroundColor: Constant.Color.green])
+        textDate.attributedText = NSAttributedString(string: "28/6/2021", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .regular),  .foregroundColor: Constant.Color.gray3 ])
     }
     func configViews(news: ArticleHomeModel?) {
         let imageURL = news?.picture
@@ -57,9 +57,9 @@ class NodeNewsFeed : ASDisplayNode {
 
     private func configViews(imageURLStr: String?, title: String?, special: String?, date: String?) {
         imgNewsNode.url = URL(string: imageURLStr ?? " ")
-        textTitle.attributedText = NSAttributedString(string: title ?? " ", attributes: [NSAttributedString.Key.font : UIFont.init(name: Constant.Font.nunitoBold, size: 15), .foregroundColor : Constant.Color.gray1])
-        textSpecial.attributedText = NSAttributedString(string: special ?? " ", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13), .foregroundColor: Constant.Color.green])
-        textDate.attributedText = NSAttributedString(string: date ?? " ", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 13), .foregroundColor: Constant.Color.gray3 ])
+        textTitle.attributedText = NSAttributedString(string: title ?? " ", attributes: [NSAttributedString.Key.font : UIFont.init(name: Constant.Font.nunitoBold, size: 15) ?? UIFont.boldSystemFont(ofSize: 15), .foregroundColor : Constant.Color.gray1])
+        textSpecial.attributedText = NSAttributedString(string: special ?? " ", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .semibold), .foregroundColor: Constant.Color.green])
+        textDate.attributedText = NSAttributedString(string: date ?? " ", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .regular), .foregroundColor: Constant.Color.gray3 ])
     }
 
     
