@@ -37,7 +37,6 @@ class NodeDoctor: ASDisplayNode {
         let tailColor = Constant.Color.gray3
         
         
-        //??0
         textVote.attributedText = NSMutableAttributedString()
             .attrStr(text: String(format: "%.1f", 123), font: font, textColor: headColor)
             .attrStr(text: " (\(1231 )", font: font, textColor: tailColor)

@@ -11,7 +11,6 @@ import UIKit
 extension ASDisplayNode {
   
     func showLoaderView() {
-        self.view.endEditing(true)
         ProgressHUD.colorStatus = .black
         ProgressHUD.show("Đang tải", interaction: false)
     }
