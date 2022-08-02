@@ -28,18 +28,12 @@ class NodeDoctor: ASDisplayNode {
         imgStar.style.preferredSize = CGSize(width: 12, height: 12)
         imgDoctor.cornerRadius = 6
         textName.style.width = ASDimensionMake(97)
-        textName.attributedText = NSAttributedString(string: "Long", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 13) ?? UIFont.boldSystemFont(ofSize: 13), .foregroundColor: Constant.Color.gray1])
         textName.maximumNumberOfLines = 1
-        textSpecial.attributedText = NSAttributedString(string: "sfasdfafasf", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 12) ?? UIFont.systemFont(ofSize: 12, weight: .regular), .foregroundColor: Constant.Color.gray3])
         textName.maximumNumberOfLines = 1
         let font = UIFont(name: Constant.Font.nunitoRegular, size: 11)
         let headColor = Constant.Color.gray1
         let tailColor = Constant.Color.gray3
-        
-        
-        textVote.attributedText = NSMutableAttributedString()
-            .attrStr(text: String(format: "%.1f", 123), font: font, textColor: headColor)
-            .attrStr(text: " (\(1231 )", font: font, textColor: tailColor)
+    
         
     }
     

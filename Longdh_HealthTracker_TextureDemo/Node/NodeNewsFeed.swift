@@ -25,17 +25,11 @@ class NodeNewsFeed : ASDisplayNode {
         imgNewsNode.clipsToBounds = true
         imgNewsNode.borderWidth = 1
         imgNewsNode.backgroundColor = .clear
-
         imgNewsNode.borderColor = Constant.Color.gray5.cgColor
-        
+        imgNewsNode.style.preferredSize = CGSize(width: 258, height: 134)
         imgNewsNode.contentMode = .scaleToFill
         imgTextNode.image = UIImage(named: Constant.Image.eclipse)
-        
-        
-        textTitle.attributedText = NSAttributedString(string: "Jio Health khởi động chương trình Doctor Tour 2021", attributes: [NSAttributedString.Key.font : UIFont.init(name: Constant.Font.nunitoBold, size: 15) ?? UIFont.systemFont(ofSize: 15, weight: .bold), .foregroundColor : Constant.Color.gray1 ])
         textTitle.maximumNumberOfLines = 2
-        textSpecial.attributedText = NSAttributedString(string: "Ưu đãi hot", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .semibold), .foregroundColor: Constant.Color.green])
-        textDate.attributedText = NSAttributedString(string: "28/6/2021", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .regular),  .foregroundColor: Constant.Color.gray3 ])
     }
     func configViews(news: ArticleHomeModel?) {
         let imageURL = news?.picture
@@ -57,8 +51,11 @@ class NodeNewsFeed : ASDisplayNode {
 
     private func configViews(imageURLStr: String?, title: String?, special: String?, date: String?) {
         imgNewsNode.url = URL(string: imageURLStr ?? " ")
+        
         textTitle.attributedText = NSAttributedString(string: title ?? " ", attributes: [NSAttributedString.Key.font : UIFont.init(name: Constant.Font.nunitoBold, size: 15) ?? UIFont.boldSystemFont(ofSize: 15), .foregroundColor : Constant.Color.gray1])
+        
         textSpecial.attributedText = NSAttributedString(string: special ?? " ", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .semibold), .foregroundColor: Constant.Color.green])
+        
         textDate.attributedText = NSAttributedString(string: date ?? " ", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .regular), .foregroundColor: Constant.Color.gray3 ])
     }
 
@@ -67,13 +64,13 @@ class NodeNewsFeed : ASDisplayNode {
         let stackSpecial = ASStackLayoutSpec(direction: .horizontal, spacing: 6, justifyContent: .start, alignItems: .center, children: [textSpecial, imgTextNode, textDate])
         
         let stackTitle = ASStackLayoutSpec(direction: .vertical, spacing: 4, justifyContent: .start, alignItems: .start, children: [textTitle, stackSpecial])
+        stackTitle.style.width = ASDimensionMake(234)
         textTitle.style.width = stackTitle.style.width
         
         let insetTitle = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12), child: stackTitle)
+        insetTitle.style.width = ASDimensionMake(constrainedSize.max.width)
         
         let stackCell = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 12, justifyContent: .start, alignItems: .center, children: [imgNewsNode, insetTitle])
-
-        
         stackCell.style.layoutPosition = CGPoint(x: 0, y: 0)
         
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 12, right: 0), child: stackCell)
