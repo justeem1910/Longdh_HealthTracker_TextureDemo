@@ -27,7 +27,6 @@ class NewsCollectionCellNode: ASCellNode {
         imgShadow.clipsToBounds = false
         imgShadow.backgroundColor = .white
         imgShadow.cornerRadius = 8
-
         imgShadow.shadowRadius = 20
         imgShadow.shadowOffset = CGSize(width: 0, height: 4)
         imgShadow.shadowOpacity = 1

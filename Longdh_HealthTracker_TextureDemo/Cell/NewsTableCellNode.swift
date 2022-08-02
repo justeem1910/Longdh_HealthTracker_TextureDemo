@@ -6,8 +6,7 @@
 //
 
 import AsyncDisplayKit
-import Darwin
-import CoreGraphics
+
 
 class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSource {
     var textTitle = ASTextNode()
@@ -56,7 +55,7 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
     }
     func configViewsArticle(articleList: [ArticleHomeModel]? ) {
         self.articleList = articleList
-        textTitle.attributedText = NSAttributedString(string: "Tin tức",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17), .foregroundColor: Constant.Color.purple1])
+        textTitle.attributedText = NSAttributedString(string: "Tin tức",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17), NSAttributedString.Key.foregroundColor: Constant.Color.purple1])
         self.promotionList = nil
     }
     

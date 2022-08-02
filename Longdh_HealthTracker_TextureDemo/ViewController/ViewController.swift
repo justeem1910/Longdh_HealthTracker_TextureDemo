@@ -17,10 +17,9 @@ class ViewController: ASDKViewController<BaseNode> {
     }
     func setView(){
         node.backgroundColor = .white
-
-        node.addSubnode(homeNode)
+    
         self.node.layoutSpecBlock = { [weak self] parentNode, constrainedSize in
-            print(constrainedSize as Any)
+       
             guard let homeNode = self?.homeNode else { return ASLayoutSpec() }
             let layout = ASAbsoluteLayoutSpec(children: [homeNode])
             homeNode.style.layoutPosition = CGPoint(x: 0, y: 0)

@@ -9,18 +9,8 @@ import AsyncDisplayKit
 import UIKit
 
 extension ASDisplayNode {
-    func showActivityIndicator(toView: UIView) {
-        self.view.endEditing(true)
-        ProgressHUD.colorStatus = .black
-        ProgressHUD.show("Đang tải", interaction: false)
-    }
-    
-    func dismissActivityIndicator() {
-        ProgressHUD.dismiss()
-        
-    }
-    
-    func showLoaderView( toView: UIView? = nil) {
+  
+    func showLoaderView() {
         self.view.endEditing(true)
         ProgressHUD.colorStatus = .black
         ProgressHUD.show("Đang tải", interaction: false)

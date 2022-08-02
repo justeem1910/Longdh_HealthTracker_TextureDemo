@@ -42,7 +42,6 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
         return layout
         
     }
-
     func fetchDataNewsFeed() {
         self.showLoaderView()
         APIUtilities.requestHomePatientNewsFeed{ [weak self] newFeedResult, error in

@@ -72,7 +72,7 @@ class NodeNewsFeed : ASDisplayNode {
         let insetTitle = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12), child: stackTitle)
         
         let stackCell = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 12, justifyContent: .start, alignItems: .center, children: [imgNewsNode, insetTitle])
-        
+
         
         stackCell.style.layoutPosition = CGPoint(x: 0, y: 0)
         
