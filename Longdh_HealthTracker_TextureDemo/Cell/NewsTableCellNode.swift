@@ -8,17 +8,17 @@
 import AsyncDisplayKit
 
 
-class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSource {
+class NewsTableCellNode: ASCellNode {
     var textTitle = ASTextNode()
     var textSeeAll = ASTextNode()
     var imgSeeAll = ASImageNode()
-    var articleList     : [ArticleHomeModel]?
-    var promotionList     : [PromotionHomeModel]?
+    var articleList: [ArticleHomeModel]?
+    var promotionList: [PromotionHomeModel]?
     
     var collectionNode:ASCollectionNode = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumLineSpacing = 12
         let node = ASCollectionNode(collectionViewLayout: flowLayout)
         node.showsHorizontalScrollIndicator = false
         node.showsVerticalScrollIndicator = false
@@ -39,7 +39,7 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
         collectionNode.delegate = self
         collectionNode.dataSource = self
         collectionNode.style.preferredSize = CGSize(width: UIScreen.main.bounds.width, height: 220)
-        collectionNode.contentInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 12)
+        collectionNode.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 12)
       
         textTitle.attributedText = NSAttributedString(string: "Tin tức",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17) ?? UIFont.boldSystemFont(ofSize: 17), .foregroundColor: Constant.Color.purple1])
         textTitle.style.preferredSize = CGSize(width: 120, height: 22)
@@ -77,13 +77,18 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
         return ASInsetLayoutSpec(insets: .zero, child: stackCell)
     }
     
-    
-    //MARK: DELEGATE
+}
+
+
+//MARK: ASCollectionDelegate
+extension NewsTableCellNode: ASCollectionDelegate {
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        return ASSizeRange(min: CGSize(width: 270, height: 220), max: CGSize(width: 270, height: 220))
+        return ASSizeRange(min: CGSize(width: 258, height: 220), max: CGSize(width: 258, height: 220))
     }
-    
-    //MARK: DATASOURCE
+}
+
+//MARK: ASCollectionDataSource
+extension NewsTableCellNode: ASCollectionDataSource {
     func numberOfSections(in collectionNode: ASCollectionNode) -> Int {
         return 1
     }
@@ -114,4 +119,3 @@ class NewsTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSourc
         
     }
 }
-

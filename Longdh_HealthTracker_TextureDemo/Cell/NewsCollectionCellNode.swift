@@ -37,7 +37,7 @@ class NewsCollectionCellNode: ASCellNode {
         imgShadow.style.layoutPosition = CGPoint(x: 0, y: 0)
         nodeNewsFeed.style.layoutPosition = CGPoint(x: 0, y: 0)
         
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 12,bottom: 0, right: 0), child: absoluteLayout)
+        return absoluteLayout
     }
     
 }

@@ -7,7 +7,7 @@
 
 import AsyncDisplayKit
 
-class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
+class BodyPresentation : ASDisplayNode{
     var tableNode:ASTableNode = ASTableNode()
     var newsModel: HomeModel?
     
@@ -38,8 +38,8 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
         let layout = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), child: tableNode)
         
         return layout
-        
     }
+    
     func fetchDataNewsFeed() {
         self.showLoaderView()
         APIUtilities.requestHomePatientNewsFeed{ [weak self] newFeedResult, error in
@@ -58,13 +58,18 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
         }
 
     }
-    
+}
+
+//MARK: ASTableDelegate
+extension BodyPresentation: ASTableDelegate {
     func tableNode(_ tableNode: ASTableNode, constrainedSizeForRowAt indexPath: IndexPath) -> ASSizeRange {
           let width = UIScreen.main.bounds.width
           return ASSizeRangeMake(CGSize(width: width, height: 0), CGSize(width: width, height: 296))
-        
     }
-    
+}
+
+//MARK: ASTableDataSource
+extension BodyPresentation: ASTableDataSource {
     func numberOfSections(in tableNode: ASTableNode) -> Int {
         return 1
     }
@@ -101,5 +106,4 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
             return ASCellNode()
         }
     }
-    
 }

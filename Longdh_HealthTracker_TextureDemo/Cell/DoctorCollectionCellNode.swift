@@ -23,6 +23,6 @@ class DoctorCollectionCellNode: ASCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0), child: nodeDoctor)
+        return ASInsetLayoutSpec(insets: .zero, child: nodeDoctor)
     }
 }

@@ -11,7 +11,7 @@ import AsyncDisplayKit
 class HeaderPresentation: ASDisplayNode{
     let textName = ASTextNode()
     let textStatus = ASTextNode()
-    var safeArea = CGFloat()
+    
     let imgUser: ASImageNode = {
         let node = ASImageNode()
         node.contentMode = .scaleAspectFill
@@ -51,8 +51,7 @@ class HeaderPresentation: ASDisplayNode{
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
         let stackStatus = ASStackLayoutSpec(direction: .horizontal, spacing: 6, justifyContent: .start, alignItems: .center, children: [imgStatus, textStatus])
-        stackStatus.style.height = ASDimensionMake(20)
-        stackStatus.style.width = ASDimensionMake(constrainedSize.max.width)
+       
         imgStatus.style.width = ASDimensionMake(8)
         imgStatus.style.height = ASDimensionMake(8)
         
@@ -67,6 +66,9 @@ class HeaderPresentation: ASDisplayNode{
         imgBgUser.style.width = ASDimensionMake(constrainedSize.max.width)
         imgUser.style.width = ASDimensionMake(42)
         imgUser.style.height = ASDimensionMake(42)
+        
+        stackStatus.style.height = ASDimensionMake(20)
+        stackStatus.style.width = ASDimensionMake(constrainedSize.max.width)
         
         imgUser.style.layoutPosition = CGPoint(x: (constrainedSize.max.width - 16 - 42), y: 60)
         stackUser.style.layoutPosition = CGPoint(x: 16, y: 61)

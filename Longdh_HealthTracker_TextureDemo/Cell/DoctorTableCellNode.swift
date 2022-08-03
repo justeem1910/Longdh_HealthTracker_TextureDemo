@@ -7,14 +7,14 @@
 
 import AsyncDisplayKit
 
-class DoctorTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSource{
+class DoctorTableCellNode: ASCellNode{
     var textTitle = ASTextNode()
     var textSeeAll = ASTextNode()
     var imgSeeAll = ASImageNode()
     var collectionNode:ASCollectionNode = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumLineSpacing = 12
         let node = ASCollectionNode(collectionViewLayout: flowLayout)
         node.showsHorizontalScrollIndicator = false
         node.showsVerticalScrollIndicator = false
@@ -65,14 +65,20 @@ class DoctorTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSou
         stackCell.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 286)
         return ASInsetLayoutSpec(insets: .zero, child: stackCell)
     }
+   
     
-    
-    //MARK: DELEGATE
+}
+
+//MARK: ASCollectionDelegate
+extension DoctorTableCellNode: ASCollectionDelegate {
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        return ASSizeRange(min: CGSize(width: 133, height: 0), max: CGSize(width: 133, height: 200))
+        return ASSizeRange(min: CGSize(width: 121, height: 0), max: CGSize(width: 121, height: 200))
     }
-    
-    //MARK: DATASOURCE
+}
+
+
+//MARK: ASCollectionDataSource
+extension DoctorTableCellNode: ASCollectionDataSource {
     func numberOfSections(in collectionNode: ASCollectionNode) -> Int {
         return 1
     }
@@ -97,3 +103,5 @@ class DoctorTableCellNode: ASCellNode, ASCollectionDelegate, ASCollectionDataSou
         
     }
 }
+
+
