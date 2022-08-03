@@ -30,11 +30,8 @@ class NodeDoctor: ASDisplayNode {
         textName.style.width = ASDimensionMake(97)
         textName.maximumNumberOfLines = 1
         textName.maximumNumberOfLines = 1
-        let font = UIFont(name: Constant.Font.nunitoRegular, size: 11)
-        let headColor = Constant.Color.gray1
-        let tailColor = Constant.Color.gray3
-    
         
+
     }
     
     func configViews(doctorInfo: DoctorHomeModel?) {
@@ -61,9 +58,6 @@ class NodeDoctor: ASDisplayNode {
         let font = UIFont(name: Constant.Font.nunitoRegular, size: 11)
         let headColor = Constant.Color.gray1
         let tailColor = Constant.Color.gray3
-        
-        
-        //??0
         textVote.attributedText = NSMutableAttributedString()
             .attrStr(text: String(format: "%.1f", star ?? 0), font: font, textColor: headColor)
             .attrStr(text: " (\(numberOfReviews ?? 0))", font: font, textColor: tailColor)
@@ -73,6 +67,7 @@ class NodeDoctor: ASDisplayNode {
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
         let stackVote = ASStackLayoutSpec(direction: .horizontal, spacing: 6, justifyContent: .start, alignItems: .start, children: [imgStar, textVote])
+        
         let stackNameAndSpecial = ASStackLayoutSpec(direction: .vertical, spacing: 4, justifyContent: .start, alignItems: .start, children: [textName, textSpecial])
         
         let stackNameAndVote = ASStackLayoutSpec(direction: .vertical, spacing: 8, justifyContent: .start, alignItems: .start, children: [stackNameAndSpecial, stackVote])

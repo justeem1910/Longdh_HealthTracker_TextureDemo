@@ -57,8 +57,8 @@ class NodeNewsFeed : ASDisplayNode {
         textSpecial.attributedText = NSAttributedString(string: special ?? " ", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .semibold), .foregroundColor: Constant.Color.green])
         
         textDate.attributedText = NSAttributedString(string: date ?? " ", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .regular), .foregroundColor: Constant.Color.gray3 ])
+       
     }
-
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let stackSpecial = ASStackLayoutSpec(direction: .horizontal, spacing: 6, justifyContent: .start, alignItems: .center, children: [textSpecial, imgTextNode, textDate])

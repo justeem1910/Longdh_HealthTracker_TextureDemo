@@ -8,10 +8,9 @@
 import AsyncDisplayKit
 
 class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
-    var viewBackground = ASDisplayNode()
     var tableNode:ASTableNode = ASTableNode()
     var newsModel: HomeModel?
-    var progress:ProgressHUD?
+    
     override init() {
         super.init()
         automaticallyManagesSubnodes = true
@@ -24,7 +23,6 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
 
     }
     func setView (){
-        viewBackground.backgroundColor = .clear
         tableNode.backgroundColor = .clear
         tableNode.delegate = self
         tableNode.dataSource = self
@@ -99,7 +97,7 @@ class BodyPresentation : ASDisplayNode, ASTableDelegate, ASTableDataSource {
                 return cell
             }
         }
-        return {[weak self] in
+        return {
             return ASCellNode()
         }
     }

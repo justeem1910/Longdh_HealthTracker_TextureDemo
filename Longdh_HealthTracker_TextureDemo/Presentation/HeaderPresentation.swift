@@ -9,8 +9,6 @@ import AsyncDisplayKit
 
 
 class HeaderPresentation: ASDisplayNode{
-    
-    var layout = ASLayoutSpec()
     let textName = ASTextNode()
     let textStatus = ASTextNode()
     var safeArea = CGFloat()
