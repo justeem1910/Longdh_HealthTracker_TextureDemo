@@ -38,6 +38,7 @@ class HeaderPresentation: ASDisplayNode{
         setView()
     }
     func setView(){
+        imgUser.style.preferredSize = CGSize(width: Constant.Size.imageUserWidth, height: Constant.Size.imageUserHeight)
         textName.attributedText = NSAttributedString(string: "Quỳnh ken" , attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 15) ?? UIFont.systemFont(ofSize: 15, weight: .bold), NSAttributedString.Key.foregroundColor: UIColor.white])
         textStatus.attributedText = NSAttributedString(string: "Đang trực tuyến", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoRegular, size: 12) ?? UIFont.systemFont(ofSize: 12, weight: .regular), .foregroundColor: UIColor.white ])
         
@@ -64,13 +65,11 @@ class HeaderPresentation: ASDisplayNode{
         let absolute = ASAbsoluteLayoutSpec(children: [imgBgUser,stackUser,imgUser])
         imgBgUser.style.height = ASDimensionMake(constrainedSize.max.width * (143/375))
         imgBgUser.style.width = ASDimensionMake(constrainedSize.max.width)
-        imgUser.style.width = ASDimensionMake(42)
-        imgUser.style.height = ASDimensionMake(42)
         
         stackStatus.style.height = ASDimensionMake(20)
         stackStatus.style.width = ASDimensionMake(constrainedSize.max.width)
         
-        imgUser.style.layoutPosition = CGPoint(x: (constrainedSize.max.width - 16 - 42), y: 60)
+        imgUser.style.layoutPosition = CGPoint(x: (constrainedSize.max.width - Constant.Size.spacingImageUser - Constant.Size.imageUserWidth), y: 60)
         stackUser.style.layoutPosition = CGPoint(x: 16, y: 61)
         
         absolute.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.width * (143/375))

@@ -14,11 +14,12 @@ class NewsTableCellNode: ASCellNode {
     var imgSeeAll = ASImageNode()
     var articleList: [ArticleHomeModel]?
     var promotionList: [PromotionHomeModel]?
+    var typeCell: TypeCell?
     
     var collectionNode:ASCollectionNode = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 12
+        flowLayout.minimumLineSpacing = Constant.Size.spacingCollectionCell
         let node = ASCollectionNode(collectionViewLayout: flowLayout)
         node.showsHorizontalScrollIndicator = false
         node.showsVerticalScrollIndicator = false
@@ -42,7 +43,7 @@ class NewsTableCellNode: ASCellNode {
         collectionNode.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 12)
       
         textTitle.attributedText = NSAttributedString(string: "Tin tức",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17) ?? UIFont.boldSystemFont(ofSize: 17), .foregroundColor: Constant.Color.purple1])
-        textTitle.style.preferredSize = CGSize(width: 120, height: 22)
+        textTitle.style.preferredSize = CGSize(width: Constant.Size.textTitleTableCellWidth, height: Constant.Size.textTitleTableCellHeight)
 
         
         textSeeAll.attributedText = NSAttributedString(string: "Xem tất cả", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .semibold), .foregroundColor: Constant.Color.green])
@@ -54,12 +55,14 @@ class NewsTableCellNode: ASCellNode {
         
     }
     func configViewsArticle(articleList: [ArticleHomeModel]? ) {
-        self.articleList = articleList
+        typeCell = .newsCell
         textTitle.attributedText = NSAttributedString(string: "Tin tức",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17) ?? UIFont.boldSystemFont(ofSize: 17), NSAttributedString.Key.foregroundColor: Constant.Color.purple1])
+        self.articleList = articleList
         self.promotionList = nil
     }
     
     func configViewsPromotion(promotionList: [PromotionHomeModel]?) {
+        typeCell = .promotionCell
         textTitle.attributedText = NSAttributedString(string: "Khuyến mại",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17) ?? UIFont.systemFont(ofSize: 13, weight: .semibold), .foregroundColor: Constant.Color.purple1])
         self.articleList = nil
         self.promotionList = promotionList
@@ -69,21 +72,21 @@ class NewsTableCellNode: ASCellNode {
         let stackSeeAll = ASStackLayoutSpec(direction: .horizontal, spacing: 2, justifyContent: .center, alignItems: .center, children: [textSeeAll, imgSeeAll])
         
         let absoluteTitle = ASAbsoluteLayoutSpec(children: [textTitle, stackSeeAll])
-        textTitle.style.layoutPosition =  CGPoint(x: 16, y: 0)
-        stackSeeAll.style.layoutPosition = CGPoint(x: constrainedSize.max.width - 96, y: 0)
+        textTitle.style.layoutPosition =  CGPoint(x: Constant.Size.spacingTextTitleTableCell, y: 0)
+        stackSeeAll.style.layoutPosition = CGPoint(x: constrainedSize.max.width - Constant.Size.buttonSeeAllWidth - Constant.Size.spacingButtonSeeAll, y: 0)
     
         let stackCell = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .start, alignItems: .start, children: [absoluteTitle, collectionNode])
-        stackCell.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 286)
+        stackCell.style.preferredSize = CGSize(width: constrainedSize.max.width, height: Constant.Size.newsTableCellHeight)
+        
         return ASInsetLayoutSpec(insets: .zero, child: stackCell)
     }
-    
 }
 
 
 //MARK: ASCollectionDelegate
 extension NewsTableCellNode: ASCollectionDelegate {
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        return ASSizeRange(min: CGSize(width: 258, height: 220), max: CGSize(width: 258, height: 220))
+        return ASSizeRange(min: CGSize(width: 0, height: 0), max: CGSize(width: Constant.Size.newsCollectionCellWidth, height: Constant.Size.newsCollectionCellHeight))
     }
 }
 
@@ -94,27 +97,33 @@ extension NewsTableCellNode: ASCollectionDataSource {
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
-        if let articleList = articleList {
-            return articleList.count
+        switch self.typeCell {
+        case .newsCell:
+            return self.articleList?.count ?? 0
+        case .promotionCell:
+            return self.promotionList?.count ?? 0
+        default:
+            return 0
         }
-        return promotionList?.count ?? 0
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
         return { [weak self] in
+            
             let cell = NewsCollectionCellNode()
-            cell.clipsToBounds = false
-            if let self = self {
-                if let articleList = self.articleList {
-                    let news = articleList[indexPath.item]
-                    cell.nodeNewsFeed.configViews(news: news)
-                    return cell
-                }
-                let promotion = self.promotionList?[indexPath.item]
+            
+            switch self?.typeCell {
+            case .newsCell:
+                let news = self?.articleList?[indexPath.item]
+                cell.nodeNewsFeed.configViews(news: news)
+                return cell
+            case .promotionCell:
+                let promotion = self?.promotionList?[indexPath.item]
                 cell.nodeNewsFeed.configViews(promotion: promotion)
                 return cell
+            default:
+                return cell
             }
-            return ASCellNode()
         }
         
     }

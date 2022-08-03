@@ -20,6 +20,7 @@ class HomePresentation : ASDisplayNode {
     }
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {        
         let stack = ASStackLayoutSpec(direction: .vertical, spacing: -25, justifyContent: .start, alignItems: .start, children: [headerNode, bodyNode])
+        
         headerNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.width * (143/375))
         bodyNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: (constrainedSize.max.height - (constrainedSize.max.width*(143/375) - 25)))
         

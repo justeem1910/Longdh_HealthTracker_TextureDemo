@@ -22,12 +22,12 @@ class NodeDoctor: ASDisplayNode {
         setView()
     }
     func setView(){
-        imgDoctor.style.preferredSize = CGSize(width: 97, height: 97)
+        imgDoctor.style.preferredSize = CGSize(width: Constant.Size.imageDoctorCellWidth, height: Constant.Size.imageDoctorCellHeight)
         imgDoctor.contentMode = .scaleAspectFill
         imgStar.image = UIImage(named: Constant.Image.star)
-        imgStar.style.preferredSize = CGSize(width: 12, height: 12)
+        imgStar.style.preferredSize = CGSize(width: Constant.Size.imageStarCellWidth, height: Constant.Size.imageStarCellHeight)
         imgDoctor.cornerRadius = 6
-        textName.style.width = ASDimensionMake(97)
+        textName.style.width = ASDimensionMake(Constant.Size.textDoctorCellWidth)
         textName.maximumNumberOfLines = 1
         textName.maximumNumberOfLines = 1
         

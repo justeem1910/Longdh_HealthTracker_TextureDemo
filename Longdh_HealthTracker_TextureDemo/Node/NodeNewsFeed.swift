@@ -26,7 +26,7 @@ class NodeNewsFeed : ASDisplayNode {
         imgNewsNode.borderWidth = 1
         imgNewsNode.backgroundColor = .clear
         imgNewsNode.borderColor = Constant.Color.gray5.cgColor
-        imgNewsNode.style.preferredSize = CGSize(width: 258, height: 134)
+        imgNewsNode.style.preferredSize = CGSize(width: Constant.Size.imageNewsCellWidth, height: Constant.Size.imageNewsCellHeight)
         imgNewsNode.contentMode = .scaleToFill
         imgTextNode.image = UIImage(named: Constant.Image.eclipse)
         textTitle.maximumNumberOfLines = 2
@@ -64,10 +64,12 @@ class NodeNewsFeed : ASDisplayNode {
         let stackSpecial = ASStackLayoutSpec(direction: .horizontal, spacing: 6, justifyContent: .start, alignItems: .center, children: [textSpecial, imgTextNode, textDate])
         
         let stackTitle = ASStackLayoutSpec(direction: .vertical, spacing: 4, justifyContent: .start, alignItems: .start, children: [textTitle, stackSpecial])
-        stackTitle.style.width = ASDimensionMake(234)
+        stackTitle.style.width = ASDimensionMake(Constant.Size.newsCollectionCellWidth)
+        
         textTitle.style.width = stackTitle.style.width
         
         let insetTitle = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12), child: stackTitle)
+        
         insetTitle.style.width = ASDimensionMake(constrainedSize.max.width)
         
         let stackCell = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 12, justifyContent: .start, alignItems: .center, children: [imgNewsNode, insetTitle])

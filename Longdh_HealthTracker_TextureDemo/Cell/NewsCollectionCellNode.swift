@@ -14,15 +14,16 @@ class NewsCollectionCellNode: ASCellNode {
         super.init()
         automaticallyManagesSubnodes = true
         backgroundColor = .clear
+        clipsToBounds = false
         setView()
     }
     
     func setView(){
-        nodeNewsFeed.style.preferredSize = CGSize(width: 258, height: 220)
+        nodeNewsFeed.style.preferredSize = CGSize(width: Constant.Size.newsCollectionCellWidth, height: Constant.Size.newsCollectionCellHeight)
         nodeNewsFeed.clipsToBounds = true
         nodeNewsFeed.cornerRadius = 8
         
-        imgShadow.style.preferredSize = CGSize(width: 258, height: 220)
+        imgShadow.style.preferredSize = CGSize(width: Constant.Size.newsCollectionCellWidth, height: Constant.Size.newsCollectionCellHeight)
         imgShadow.clipsToBounds = false
         imgShadow.backgroundColor = .white
         imgShadow.cornerRadius = 8

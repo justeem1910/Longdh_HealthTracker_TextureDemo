@@ -14,7 +14,7 @@ class DoctorTableCellNode: ASCellNode{
     var collectionNode:ASCollectionNode = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 12
+        flowLayout.minimumLineSpacing = Constant.Size.spacingCollectionCell
         let node = ASCollectionNode(collectionViewLayout: flowLayout)
         node.showsHorizontalScrollIndicator = false
         node.showsVerticalScrollIndicator = false
@@ -36,11 +36,11 @@ class DoctorTableCellNode: ASCellNode{
     func setView(){
         collectionNode.delegate = self
         collectionNode.dataSource = self
-        collectionNode.style.preferredSize = CGSize(width: UIScreen.main.bounds.width, height: 185)
-        collectionNode.contentInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 12)
+        collectionNode.style.preferredSize = CGSize(width: UIScreen.main.bounds.width, height: Constant.Size.doctorCollectionCellMaxHeight)
+        collectionNode.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 12)
         
         textTitle.attributedText = NSAttributedString(string: "Giới thiệu bác sĩ",attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoBold, size: 17) ?? UIFont.boldSystemFont(ofSize: 17), .foregroundColor: Constant.Color.purple1])
-        textTitle.style.preferredSize = CGSize(width: 200, height: 22)
+        textTitle.style.preferredSize = CGSize(width: Constant.Size.textTitleTableCellWidth, height: Constant.Size.textTitleTableCellHeight)
         textTitle.style.alignSelf = .start
         
         textSeeAll.attributedText = NSAttributedString(string: "Xem tất cả", attributes: [NSAttributedString.Key.font : UIFont(name: Constant.Font.nunitoSemiBold, size: 13) ?? UIFont.systemFont(ofSize: 13, weight: .semibold), .foregroundColor: Constant.Color.green])
@@ -58,11 +58,10 @@ class DoctorTableCellNode: ASCellNode{
         let absoluteTitle = ASAbsoluteLayoutSpec(children: [textTitle, stackSeeAll])
         
         textTitle.style.layoutPosition =  CGPoint(x: 16, y: 0)
-        stackSeeAll.style.layoutPosition = CGPoint(x: constrainedSize.max.width - 96, y: 0)
-        absoluteTitle.style.height = ASDimensionMake(22)
+        stackSeeAll.style.layoutPosition = CGPoint(x: constrainedSize.max.width - Constant.Size.spacingButtonSeeAll - Constant.Size.buttonSeeAllWidth, y: 0)
         
         let stackCell = ASStackLayoutSpec(direction: .vertical, spacing: 16, justifyContent: .start, alignItems: .start, children: [absoluteTitle, collectionNode])
-        stackCell.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 286)
+        stackCell.style.preferredSize = CGSize(width: constrainedSize.max.width, height: Constant.Size.doctorTableCellHeight)
         return ASInsetLayoutSpec(insets: .zero, child: stackCell)
     }
    
@@ -72,7 +71,7 @@ class DoctorTableCellNode: ASCellNode{
 //MARK: ASCollectionDelegate
 extension DoctorTableCellNode: ASCollectionDelegate {
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        return ASSizeRange(min: CGSize(width: 121, height: 0), max: CGSize(width: 121, height: 200))
+        return ASSizeRange(min: CGSize(width: 0, height: 0), max: CGSize(width: Constant.Size.doctorCollectionCellWidth, height: Constant.Size.doctorCollectionCellMaxHeight))
     }
 }
 

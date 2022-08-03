@@ -9,6 +9,41 @@ import Foundation
 import UIKit
 
 class Constant {
+    struct Size{
+        static let imageUserHeight = CGFloat(42)
+        static let imageUserWidth = CGFloat(42)
+        static let spacingImageUser = CGFloat(16)
+        
+        static let imageNewsCellWidth = CGFloat(258)
+        static let imageNewsCellHeight = CGFloat(134)
+        
+        static let newsCollectionCellWidth = CGFloat(258)
+        static let newsCollectionCellHeight = CGFloat(220)
+        static let newsTableCellHeight = CGFloat(286)
+        
+        
+        static let imageDoctorCellWidth = CGFloat(97)
+        static let imageDoctorCellHeight = CGFloat(97)
+        
+        static let textTitleTableCellWidth = CGFloat(200)
+        static let textTitleTableCellHeight = CGFloat(22)
+        
+        static let textDoctorCellWidth = CGFloat(97)
+        
+        static let imageStarCellWidth = CGFloat(12)
+        static let imageStarCellHeight = CGFloat(12)
+        
+        static let spacingButtonSeeAll = CGFloat(16)
+        static let buttonSeeAllWidth = CGFloat(82)
+        
+        static let spacingTextTitleTableCell = CGFloat(16)
+        static let spacingCollectionCell = CGFloat(12)
+        
+        static let doctorCollectionCellMaxHeight = CGFloat(195)
+        static let doctorCollectionCellWidth = CGFloat(121)
+        static let doctorTableCellHeight = CGFloat(286)
+    
+    }
     struct Image {
         static let status = "status"
         static let star = "Star"
@@ -38,4 +73,10 @@ class Constant {
         static let shadowColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.1)
         static let lineColor = UIColor.init(red: 229/255, green: 229/255, blue: 229/255, alpha: 1)
     }
+}
+
+enum TypeCell{
+    case newsCell
+    case promotionCell
+    case DoctorScreen
 }
